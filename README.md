@@ -1,4 +1,3 @@
-# mg-bp-wp-plugin
-WordPress Plugin Boilerplate
+# MG BoilerPlate WordPress Plugin
 
-Basic structure to start a new WordPress plugin from scratch.
+This files gives the basic structure to start a new WordPress plugin from scratch.
