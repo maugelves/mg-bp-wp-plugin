@@ -21,11 +21,11 @@ class <classname>
 	$supports 		=> Set the support for the Custom Post Type (Default title, editor and thumbnail)
 	$menu_icon		=> Set the specific icon for the Custom Post Type => https://developer.wordpress.org/resource/dashicons/#products
 	*/
-	private $cpt_name 		= ""
+	private $cpt_name 		= "";
 	private $singular_name 	= "";
 	private $plural_name 	= "";
-	private $supports		= array( 'title', 'editor', 'thumbnail' )
-	private $menu_icon		= "dashicons-admin-site"
+	private $supports		= array( 'title', 'editor', 'thumbnail' );
+	private $menu_icon		= "dashicons-admin-site";
 	
 	
 	/**
@@ -121,7 +121,7 @@ class <classname>
 			'rewrite'               => $rewrite,
 			'capabilities'          => $capabilities,
 		);
-		register_post_type( $cpt_name, $args );
+		register_post_type( strtolower( $cpt_name ), $args );
 
 
 	}
