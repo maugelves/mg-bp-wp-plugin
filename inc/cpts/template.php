@@ -130,13 +130,13 @@ class <classname>
 	public function assign_roles() {
 
 		$role = get_role('administrator');
-		$role->add_cap('edit_office');
-		$role->add_cap('edit_offices');
-		$role->add_cap('edit_others_offices');
-		$role->add_cap('read_office');
-		$role->add_cap('delete_offices');
-		$role->add_cap('publish_offices');
-		$role->add_cap('read_private_offices');
+		$role->add_cap('edit_' . strtolower( $this->singular_name ) );
+		$role->add_cap('edit_' . strtolower( $this->plural_name ) );
+		$role->add_cap('edit_others_' . strtolower( $this->plural_name ) );
+		$role->add_cap('read_' . strtolower( $this->singular_name ) );
+		$role->add_cap('delete_' . strtolower( $this->plural_name ) );
+		$role->add_cap('publish_' . strtolower( $this->plural_name ) );
+		$role->add_cap('read_private_' . strtolower( $this->plural_name ) );
 
 	}
 
