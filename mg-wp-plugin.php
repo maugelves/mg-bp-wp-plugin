@@ -26,7 +26,7 @@ define( 'MGBPWPTHEME_TEXTDOMAIN', "<SetTheTextDomain>" );
 *   PLUGIN DEPENDENCIES
 *   =================================================================================================
 */
-include ( MGT_PATH . "/inc/libs/class-tgm-plugin-activation.php" );
+include ( MGBPWPTHEME_PATH . "/inc/libs/class-tgm-plugin-activation.php" );
 
 
 
@@ -35,7 +35,7 @@ include ( MGT_PATH . "/inc/libs/class-tgm-plugin-activation.php" );
 *   CONFIG FUNCTIONS
 *   =================================================================================================
 */
-include ( MGT_PATH . "/inc/config.php" );
+include ( MGBPWPTHEME_PATH . "/inc/config.php" );
 
 
 
@@ -48,7 +48,7 @@ include ( MGT_PATH . "/inc/config.php" );
 *   automatically.
 *   =================================================================================================
 */
-foreach (glob(MGT_PATH . "/inc/cpts/*.php") as $filename)
+foreach (glob(MGBPWPTHEME_PATH . "/inc/cpts/*.php") as $filename)
 	include $filename;
 
 
@@ -61,5 +61,5 @@ foreach (glob(MGT_PATH . "/inc/cpts/*.php") as $filename)
 *   automatically.
 *   =================================================================================================
 */
-foreach (glob(MGT_PATH . "/inc/acfs/*.php") as $filename)
+foreach (glob(MGBPWPTHEME_PATH . "/inc/acfs/*.php") as $filename)
 	include $filename;
