@@ -160,7 +160,7 @@ class <classname>
 			6 => __( ucfirst( $this->singular_name ) . ' publicado.', MGBPWPTHEME_TEXTDOMAIN ),
 			7 => __( ucfirst( $this->singular_name ) . ' guardado.', MGBPWPTHEME_TEXTDOMAIN ),
 			9 => __( ucfirst( $this->singular_name ) . ' programador', MGBPWPTHEME_TEXTDOMAIN ),
-			10 => __( 'Borrador de ' . $strtolower( $this->singular_name ) . ' actualizado.', MGBPWPTHEME_TEXTDOMAIN ),
+			10 => __( 'Borrador de ' . strtolower( $this->singular_name ) . ' actualizado.', MGBPWPTHEME_TEXTDOMAIN ),
 		);
 
 		return $messages;
