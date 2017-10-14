@@ -14,9 +14,11 @@ Domain Path: /languages
 
 // CONSTANTS
 define( '<constant-domainname>', '<Text Domain>');
-define( 'MGT_PATH', dirname( __FILE__ ) );
-define( 'MGT_FOLDER', basename( MGSP_PATH ) );
-define( 'MGT_URL', plugins_url() . '/' . MGSP_FOLDER );
+define( 'MGBPWPTHEME_PATH', dirname( __FILE__ ) );
+define( 'MGBPWPTHEME_FILE', __FILE__ );
+define( 'MGBPWPTHEME_FOLDER', basename( MGBPWPTHEME_PATH ) );
+define( 'MGBPWPTHEME_URL', plugins_url() . '/' . MGBPWPTHEME_FOLDER );
+define( 'MGBPWPTHEME_TEXTDOMAIN', "<SetTheTextDomain>" );
 
 
 /*
