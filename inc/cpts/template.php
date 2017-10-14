@@ -33,7 +33,7 @@ class <classname>
 	 */
 	public function __construct() {
 
-		add_action( 'init', array( $this, 'create_cpt_office' ), 10 );
+		add_action( 'init', array( $this, 'create_cpt' ), 10 );
 
 		add_filter( 'enter_title_here', array( $this, 'change_title_placeholder' ) );
 
@@ -62,9 +62,9 @@ class <classname>
 
 
 	/**
-	 * This function creates the CPT Office
+	 * This function creates the Custom Post Type
 	 */
-	public function create_cpt_office() {
+	public function create_cpt() {
 
 		$labels = array(
 			'name'                  => _x( $this->plural_name, 'Post Type General Name', MGBPWPTHEME_TEXTDOMAIN ),
