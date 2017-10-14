@@ -1,6 +1,5 @@
 <?php
 
-
 /**
 *	Load the TextDomain for the plugin in the '/languages' folder
 *	
@@ -8,7 +7,7 @@
 *	e.g. my-books-en_US.mo
 */
 function xep_after_theme_setup(){
-	load_plugin_textdomain(MGBPWPTHEME_TEXTDOMAIN,false, MGBPWPTHEME_FOLDER . '/languages');
+	load_plugin_textdomain(MGBPWPPLUGIN_TEXTDOMAIN,false, MGBPWPPLUGIN_FOLDER . '/languages');
 }
 add_action('plugins_loaded', 'xep_after_theme_setup');
 
@@ -24,7 +23,7 @@ function custom_acf_settings_localization($localization){
 add_filter('acf/settings/l10n', 'custom_acf_settings_localization');
 
 function custom_acf_settings_textdomain($domain){
-	return MGBPWPTHEME_TEXTDOMAIN;
+	return MGBPWPPLUGIN_TEXTDOMAIN;
 }
 add_filter('acf/settings/l10n_textdomain', 'custom_acf_settings_textdomain');
 /* ======================================================================== */

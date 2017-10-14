@@ -13,12 +13,16 @@ Domain Path: /languages
 */
 
 // CONSTANTS
-define( '<constant-domainname>', '<Text Domain>');
-define( 'MGBPWPTHEME_PATH', dirname( __FILE__ ) );
-define( 'MGBPWPTHEME_FILE', __FILE__ );
-define( 'MGBPWPTHEME_FOLDER', basename( MGBPWPTHEME_PATH ) );
-define( 'MGBPWPTHEME_URL', plugins_url() . '/' . MGBPWPTHEME_FOLDER );
-define( 'MGBPWPTHEME_TEXTDOMAIN', "<SetTheTextDomain>" );
+define( 'MGBPWPPLUGIN_PATH', dirname( __FILE__ ) );
+define( 'MGBPWPPLUGIN_FILE', __FILE__ );
+define( 'MGBPWPPLUGIN_FOLDER', basename( MGBPWPPLUGIN_PATH ) );
+define( 'MGBPWPPLUGIN_URL', plugins_url() . '/' . MGBPWPPLUGIN_FOLDER );
+
+/*
+[MODIFY] <SetTheTextDomain>
+Set the Text Domain that will be used in the plugin
+*/
+define( 'MGBPWPPLUGIN_TEXTDOMAIN', "<SetTheTextDomain>" );
 
 
 /*
@@ -26,7 +30,7 @@ define( 'MGBPWPTHEME_TEXTDOMAIN', "<SetTheTextDomain>" );
 *   PLUGIN DEPENDENCIES
 *   =================================================================================================
 */
-include ( MGBPWPTHEME_PATH . "/inc/libs/class-tgm-plugin-activation.php" );
+include ( MGBPWPPLUGIN_PATH . "/inc/libs/class-tgm-plugin-activation.php" );
 
 
 
@@ -35,7 +39,7 @@ include ( MGBPWPTHEME_PATH . "/inc/libs/class-tgm-plugin-activation.php" );
 *   CONFIG FUNCTIONS
 *   =================================================================================================
 */
-include ( MGBPWPTHEME_PATH . "/inc/config.php" );
+include ( MGBPWPPLUGIN_PATH . "/inc/config.php" );
 
 
 
@@ -48,7 +52,7 @@ include ( MGBPWPTHEME_PATH . "/inc/config.php" );
 *   automatically.
 *   =================================================================================================
 */
-foreach (glob(MGBPWPTHEME_PATH . "/inc/cpts/*.php") as $filename)
+foreach (glob(MGBPWPPLUGIN_PATH . "/inc/cpts/*.php") as $filename)
 	include $filename;
 
 
@@ -61,5 +65,5 @@ foreach (glob(MGBPWPTHEME_PATH . "/inc/cpts/*.php") as $filename)
 *   automatically.
 *   =================================================================================================
 */
-foreach (glob(MGBPWPTHEME_PATH . "/inc/acfs/*.php") as $filename)
+foreach (glob(MGBPWPPLUGIN_PATH . "/inc/acfs/*.php") as $filename)
 	include $filename;

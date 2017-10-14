@@ -39,7 +39,7 @@ class <classname>
 
 		add_filter( 'post_updated_messages', array($this, 'updated_messages_cb' ) );
 
-		register_activation_hook( MGBPWPTHEME_FILE, array( $this, 'assign_roles' ) );
+		register_activation_hook( MGBPWPPLUGIN_FILE, array( $this, 'assign_roles' ) );
 
 	}
 
@@ -53,7 +53,7 @@ class <classname>
 		$screen = get_current_screen();
 
 		if  ( $this->cpt_name == $screen->post_type )
-			$title = __('Introduzca el nombre', MGBPWPTHEME_TEXTDOMAIN );
+			$title = __('Introduzca el nombre', MGBPWPPLUGIN_TEXTDOMAIN );
 
 
 		return $title;
@@ -67,28 +67,30 @@ class <classname>
 	public function create_cpt() {
 
 		$labels = array(
-			'name'                  => _x( $this->plural_name, 'Post Type General Name', MGBPWPTHEME_TEXTDOMAIN ),
-			'singular_name'         => _x( 'Oficina', 'Post Type Singular Name', MGBPWPTHEME_TEXTDOMAIN ),
-			'menu_name'             => __( $this->plural_name, MGBPWPTHEME_TEXTDOMAIN ),
-			'name_admin_bar'        => __( $this->plural_name, MGBPWPTHEME_TEXTDOMAIN ),
-			'archives'              => __( $this->plural_name, MGBPWPTHEME_TEXTDOMAIN ),
-			'all_items'             => __( 'Todas las ' . strtolower($this->plural_name), MGBPWPTHEME_TEXTDOMAIN ),
-			'add_new_item'          => __( 'Agregar nueva ' . strtolower($this->singular_name), MGBPWPTHEME_TEXTDOMAIN ),
-			'add_new'               => __( 'Agregar nueva', MGBPWPTHEME_TEXTDOMAIN ),
-			'new_item'              => __( 'Nueva ' . strtolower($this->singular_name), MGBPWPTHEME_TEXTDOMAIN ),
-			'edit_item'             => __( 'Editar ' . strtolower($this->singular_name), MGBPWPTHEME_TEXTDOMAIN ),
-			'update_item'           => __( 'Actualizar ' . strtolower($this->singular_name), MGBPWPTHEME_TEXTDOMAIN ),
-			'view_item'             => __( 'Ver ' . strtolower($this->singular_name), MGBPWPTHEME_TEXTDOMAIN ),
-			'view_items'            => __( 'Ver ' . strtolower($this->plural_name), MGBPWPTHEME_TEXTDOMAIN ),
-			'search_items'          => __( 'Buscar ' . strtolower($this->singular_name), MGBPWPTHEME_TEXTDOMAIN ),
-			'not_found'             => __( 'No encontrado', MGBPWPTHEME_TEXTDOMAIN )
+			'name'                  => _x( $this->plural_name, 'Post Type General Name', MGBPWPPLUGIN_TEXTDOMAIN ),
+			'singular_name'         => _x( $this->singular_name, 'Post Type Singular Name', MGBPWPPLUGIN_TEXTDOMAIN ),
+			'menu_name'             => __( $this->plural_name, MGBPWPPLUGIN_TEXTDOMAIN ),
+			'name_admin_bar'        => __( $this->plural_name, MGBPWPPLUGIN_TEXTDOMAIN ),
+			'archives'              => __( $this->plural_name, MGBPWPPLUGIN_TEXTDOMAIN ),
+			'all_items'             => __( 'Todos las ' . strtolower($this->plural_name), MGBPWPPLUGIN_TEXTDOMAIN ),
+			'add_new_item'          => __( 'Agregar nuevo ' . strtolower($this->singular_name), MGBPWPPLUGIN_TEXTDOMAIN ),
+			'add_new'               => __( 'Agregar nuevo', MGBPWPPLUGIN_TEXTDOMAIN ),
+			'new_item'              => __( 'Nuevo ' . strtolower($this->singular_name), MGBPWPPLUGIN_TEXTDOMAIN ),
+			'edit_item'             => __( 'Editar ' . strtolower($this->singular_name), MGBPWPPLUGIN_TEXTDOMAIN ),
+			'update_item'           => __( 'Actualizar ' . strtolower($this->singular_name), MGBPWPPLUGIN_TEXTDOMAIN ),
+			'view_item'             => __( 'Ver ' . strtolower($this->singular_name), MGBPWPPLUGIN_TEXTDOMAIN ),
+			'view_items'            => __( 'Ver ' . strtolower($this->plural_name), MGBPWPPLUGIN_TEXTDOMAIN ),
+			'search_items'          => __( 'Buscar ' . strtolower($this->singular_name), MGBPWPPLUGIN_TEXTDOMAIN ),
+			'not_found'             => __( 'No encontrado', MGBPWPPLUGIN_TEXTDOMAIN )
 		);
+
 		$rewrite = array(
 			'slug'                  => strtolower( $this->plural_name ),
 			'with_front'            => true,
 			'pages'                 => true,
 			'feeds'                 => true,
 		);
+
 		$capabilities = array(
 			'edit_post'             => 'edit_' . strtolower($this->singular_name),
 			'edit_posts'            => 'edit_' . strtolower($this->singular_name),
@@ -99,27 +101,28 @@ class <classname>
 			'publish_posts'         => 'publish_' . strtolower($this->plural_name),
 			'read_private_posts'    => 'read_private_' . strtolower($this->plural_name),
 		);
+
 		$args = array(
-			'label'                 => __( ucfirst($this->plural_name), MGBPWPTHEME_TEXTDOMAIN ),
-			'labels'                => $labels,
-			'supports'              => $this->supports,
-			'hierarchical'          => false,
-			'public'                => true,
-			'show_ui'               => true,
-			'show_in_menu'          => true,
-			'menu_position'         => 10,
-			'menu_icon'             => 'dashicons-location-alt',
-			'show_in_admin_bar'     => true,
-			'show_in_nav_menus'     => true,
 			'can_export'            => true,
-			'has_archive'           => true,
+			'capabilities'          => $capabilities,
 			'exclude_from_search'   => false,
+			'has_archive'           => true,
+			'hierarchical'          => false,
+			'label'                 => __( ucfirst($this->plural_name), MGBPWPPLUGIN_TEXTDOMAIN ),
+			'labels'                => $labels,
+			'menu_icon'             => $this->menu_icon,
+			'menu_position'         => 10,
+			'public'                => true,
 			'publicly_queryable'    => true,
 			'rewrite'               => $rewrite,
-			'capabilities'          => $capabilities,
+			'show_in_admin_bar'     => true,
+			'show_in_menu'          => true,
+			'show_in_nav_menus'     => true,
+			'show_ui'               => true,
+			'supports'              => $this->supports,
 		);
-		register_post_type( strtolower( $this->cpt_name ), $args );
 
+		register_post_type( strtolower( $this->cpt_name ), $args );
 
 	}
 
@@ -153,14 +156,14 @@ class <classname>
 
 		$messages[$this->cpt_name] = array(
 			0  => '', // Unused. Messages start at index 1.
-			1 => __( ucfirst( $this->singular_name ) . ' actualizado.', MGBPWPTHEME_TEXTDOMAIN ),
-			4 => __( ucfirst( $this->singular_name ) . ' actualizado.', MGBPWPTHEME_TEXTDOMAIN ),
+			1 => __( ucfirst( $this->singular_name ) . ' actualizado.', MGBPWPPLUGIN_TEXTDOMAIN ),
+			4 => __( ucfirst( $this->singular_name ) . ' actualizado.', MGBPWPPLUGIN_TEXTDOMAIN ),
 			/* translators: %s: date and time of the revision */
-			5 => isset( $_GET['revision']) ? sprintf( __( ucfirst( $this->singular_name ) . ' recuperado de la revisión %s.', MGBPWPTHEME_TEXTDOMAIN ), wp_post_revision_title( (int) $_GET['revision'], false ) ) : false,
-			6 => __( ucfirst( $this->singular_name ) . ' publicado.', MGBPWPTHEME_TEXTDOMAIN ),
-			7 => __( ucfirst( $this->singular_name ) . ' guardado.', MGBPWPTHEME_TEXTDOMAIN ),
-			9 => __( ucfirst( $this->singular_name ) . ' programador', MGBPWPTHEME_TEXTDOMAIN ),
-			10 => __( 'Borrador de ' . strtolower( $this->singular_name ) . ' actualizado.', MGBPWPTHEME_TEXTDOMAIN ),
+			5 => isset( $_GET['revision']) ? sprintf( __( ucfirst( $this->singular_name ) . ' recuperado de la revisión %s.', MGBPWPPLUGIN_TEXTDOMAIN ), wp_post_revision_title( (int) $_GET['revision'], false ) ) : false,
+			6 => __( ucfirst( $this->singular_name ) . ' publicado.', MGBPWPPLUGIN_TEXTDOMAIN ),
+			7 => __( ucfirst( $this->singular_name ) . ' guardado.', MGBPWPPLUGIN_TEXTDOMAIN ),
+			9 => __( ucfirst( $this->singular_name ) . ' programador', MGBPWPPLUGIN_TEXTDOMAIN ),
+			10 => __( 'Borrador de ' . strtolower( $this->singular_name ) . ' actualizado.', MGBPWPPLUGIN_TEXTDOMAIN ),
 		);
 
 		return $messages;
