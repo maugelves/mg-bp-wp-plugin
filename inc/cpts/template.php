@@ -151,7 +151,7 @@ class <classname>
 	 */
 	public function updated_messages_cb( $messages ) {
 
-		$messages[$cpt_name] = array(
+		$messages[$this->cpt_name] = array(
 			0  => '', // Unused. Messages start at index 1.
 			1 => __( ucfirst( $this->singular_name ) . ' actualizado.', MGBPWPTHEME_TEXTDOMAIN ),
 			4 => __( ucfirst( $this->singular_name ) . ' actualizado.', MGBPWPTHEME_TEXTDOMAIN ),
