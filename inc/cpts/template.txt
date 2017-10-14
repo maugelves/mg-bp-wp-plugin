@@ -122,7 +122,7 @@ class <classname>
 			'supports'              => $this->supports,
 		);
 
-		register_post_type( strtolower( $this->cpt_name ), $args );
+		register_post_type( strtolower( strtolower( $this->cpt_name ) ), $args );
 
 	}
 
