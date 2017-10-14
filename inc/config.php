@@ -8,7 +8,7 @@
 *	e.g. my-books-en_US.mo
 */
 function xep_after_theme_setup(){
-	load_plugin_textdomain(<constant-domainname>,false, XEP_FOLDER . '/languages');
+	load_plugin_textdomain(MGBPWPTHEME_TEXTDOMAIN,false, MGBPWPTHEME_FOLDER . '/languages');
 }
 add_action('plugins_loaded', 'xep_after_theme_setup');
 
