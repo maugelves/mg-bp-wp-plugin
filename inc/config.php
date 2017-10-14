@@ -24,7 +24,7 @@ function custom_acf_settings_localization($localization){
 add_filter('acf/settings/l10n', 'custom_acf_settings_localization');
 
 function custom_acf_settings_textdomain($domain){
-	return <constant-domainname>;
+	return MGBPWPTHEME_TEXTDOMAIN;
 }
 add_filter('acf/settings/l10n_textdomain', 'custom_acf_settings_textdomain');
 /* ======================================================================== */
