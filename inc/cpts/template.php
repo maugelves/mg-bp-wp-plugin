@@ -52,9 +52,6 @@ class <classname>
 	public function change_title_placeholder( $title ) {
 		$screen = get_current_screen();
 
-		/*
-		[MODIFY] <Set the Custom Post Type Name>
-		*/
 		if  ( $this->cpt_name == $screen->post_type )
 			$title = __('Introduzca el nombre', MGBPWPTHEME_TEXTDOMAIN );
 
@@ -87,7 +84,7 @@ class <classname>
 			'not_found'             => __( 'No encontrado', MGBPWPTHEME_TEXTDOMAIN )
 		);
 		$rewrite = array(
-			'slug'                  => strtolower($plural_name),
+			'slug'                  => strtolower( $this->plural_name ),
 			'with_front'            => true,
 			'pages'                 => true,
 			'feeds'                 => true,
@@ -105,7 +102,7 @@ class <classname>
 		$args = array(
 			'label'                 => __( ucfirst($this->plural_name), MGBPWPTHEME_TEXTDOMAIN ),
 			'labels'                => $labels,
-			'supports'              => $supports,
+			'supports'              => $this->supports,
 			'hierarchical'          => false,
 			'public'                => true,
 			'show_ui'               => true,
