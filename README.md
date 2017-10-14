@@ -1,5 +1,4 @@
-# mg-wp-testimonials
-WordPress plugin to include testimonials in your website
+# mg-bp-wp-plugin
+WordPress Plugin Boilerplate
 
-**Requeriments**
-- Advanced Custom Fields Pro
+Basic structure to start a new WordPress plugin from scratch.
