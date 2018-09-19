@@ -12,6 +12,9 @@ Text Domain: <Text Domain>
 Domain Path: /languages
 */
 
+// We don't want hackers in our plugin.
+defined( 'ABSPATH' ) or die( 'No script kiddies please!' );
+
 // CONSTANTS
 define( 'MGBPWPPLUGIN_PATH', dirname( __FILE__ ) );
 define( 'MGBPWPPLUGIN_FILE', __FILE__ );
